@@ -1,0 +1,5 @@
+.prettierignore file 
+node_modules 
+build 
+public 
+package-lock.json
