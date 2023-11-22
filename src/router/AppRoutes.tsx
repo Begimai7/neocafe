@@ -1,9 +1,9 @@
-// import SignIn from '../components/signIn/SignIn'
+import SignIn from '../components/signIn/SignIn'
 
 const AppRoutes = () => {
   return (
     <div>
-      {/* <SignIn/> */}
+      <SignIn/>
       </div>
   )
 }

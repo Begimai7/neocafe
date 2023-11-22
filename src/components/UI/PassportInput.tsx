@@ -1,5 +1,5 @@
 import React, { useState, ChangeEvent } from 'react';
-import show from "../../assets/passportInput/noEye.svg"
+import show from '../../assets/passportInput/noEye.svg';
 import hide from '../../assets/passportInput/eye.svg';
 
 interface PassportInputProps {
@@ -9,7 +9,7 @@ interface PassportInputProps {
   placeholder?: string;
   onChange?: (value: string) => void;
 }
-
+  
 const PassportInput: React.FC<PassportInputProps> = ({
   id,
   label,
@@ -23,15 +23,15 @@ const PassportInput: React.FC<PassportInputProps> = ({
     setShowPassport((prevState) => !prevState);
   };
 
-    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-      if (onChange) {
-        onChange(e.target.value);
-      }
-    };
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    if (onChange) {
+      onChange(e.target.value);
+    }
+  };
   return (
     <div>
       <label htmlFor={id}>{label}</label>
-      <div>
+      <div className="relative inline-block">
         <input
           className="text-center text-black font-semibold text-lg"
           type={showPassport ? 'text' : 'password'}
@@ -41,8 +41,9 @@ const PassportInput: React.FC<PassportInputProps> = ({
           style={style}
         />
         <button
+          type="button"
           onClick={toggleShowPassport}
-          className="relative right-10 top-1"
+          className=" absolute inset-y-0 right-4 flex items-center justify-center px-0 mt-[30px]"
         >
           {showPassport ? <img src={hide} /> : <img src={show} />}
         </button>
