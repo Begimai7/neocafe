@@ -1,7 +1,5 @@
-// Modal.tsx
 import React, { FC } from 'react';
 
-// Define the types for the props
 interface ModalProps {
   children: React.ReactNode;
   open: boolean;
@@ -25,22 +23,18 @@ const Modal: FC<ModalProps> = ({
   borderRadius = 'none',
   borderColor = 'gray-200',
 }) => {
-  // Close modal if the backdrop is clicked
   const onBackdropClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     if (e.target === e.currentTarget) onClose();
   };
 
-  // Prevent rendering on the server or if not open
   if (typeof window === 'undefined' || !open) return null;
 
-  // Convert Tailwind class names to CSS values
   const convertWidth = (twWidth: string) => {
     switch (twWidth) {
       case '96':
-        return '24rem'; // Example conversion, adapt based on your config
-      // Add other cases as necessary
+        return '24rem';
       default:
-        return twWidth; // Default case to handle 'auto' and other values not in Tailwind config
+        return twWidth;
     }
   };
 
@@ -60,14 +54,14 @@ const Modal: FC<ModalProps> = ({
           backgroundColor: backgroundColor,
           width: convertWidth(width),
           height: height,
-          padding: padding, // Assuming padding is a valid CSS value
-          borderRadius: borderRadius, // Assuming borderRadius is a valid CSS value
+          padding: padding,
+          borderRadius: borderRadius,
           borderColor: borderColor,
           borderWidth: borderColor ? '1px' : '0',
           boxShadow:
-            '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)', // Example shadow
+            '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
           zIndex: 50,
-          overflowY: 'auto', // In case the content is larger than the modal
+          overflowY: 'auto',
         }}
       >
         {children}
