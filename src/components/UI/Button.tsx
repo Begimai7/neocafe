@@ -11,7 +11,7 @@ const Button = (props: Props) => {
   return (
     <button
       onClick={props?.onClick}
-      className={`${props.styles} px-3 py-2 rounded-lg font-medium `}
+      className={`${props.styles} px-3 py-2 rounded-lg font-medium color text-white`}
       type={props?.type}
       disabled={props?.disabled}
     >
