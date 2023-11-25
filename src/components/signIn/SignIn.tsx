@@ -32,7 +32,6 @@ const SignIn = () => {
                   htmlFor="phone-number"
                   className="text-lg font-semibold "
                 >
-                  {/* Номер телефона */}
                   <input
                     type="text"
                     id="phone-number"
