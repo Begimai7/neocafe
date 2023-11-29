@@ -36,6 +36,8 @@ function useToast() {
 
 export default useToast;
 
+// Пример использоваия
+
 // const [showOverlay, setShowOverlay] = useState(false);
 //   const { Toastify } = useToast();
 
@@ -43,4 +45,4 @@ export default useToast;
 //     Toastify("Напоминание!", "Your warning message", "warning", setShowOverlay);
 //   };
 
-// {showOverlay && <div className="toastify-opacity"/>}
+// {showOverlay && <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50" />}
