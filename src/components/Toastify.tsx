@@ -20,7 +20,7 @@ function useToast() {
 
     if (type === 'success' || type === 'error' || type === 'warning') {
       toast[type](
-        <div className="flex justify-center flex-col items-center p-16px min-w-[50vw] min-h-[10vh] text-black">
+        <div className="flex justify-center flex-col items-center p-16px min-w-[50vw] min-h-[10vh] text-black bg-blue-500">
           <h6 className="font-bold">{title}</h6>
           <p>{message}</p>
         </div>,
