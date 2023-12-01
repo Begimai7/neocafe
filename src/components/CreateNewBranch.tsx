@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Input from './UI/Input';
 import closeIcon from '../assets/newBranchIcons/close.svg';
 import Button from './UI/Button';
-// import PhotoInput from './UI/PhotoInput';8
+import PhotoInput from './UI/PhotoInput';
 
 const NewBranch: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(true);
@@ -25,7 +25,7 @@ const NewBranch: React.FC = () => {
         Добавьте фотографию филиала
       </p>
 
-      {/* <PhotoInput /> */}
+      <PhotoInput />
 
       <p className="text-[22px] font-semibold uppercase mt-6">
         Название и адрес
