@@ -1,9 +1,7 @@
-import CreateNewMenu from './components/CreateNewMenu';
+import NewBranch from './components/CreateNewBranch';
 
-export default function App() {
-  return (
-    <div>
-      <CreateNewMenu />
-    </div>
-  );
+function App() {
+  return <NewBranch />;
 }
+
+export default App;
