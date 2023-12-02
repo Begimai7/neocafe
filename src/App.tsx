@@ -1,3 +1,9 @@
+import CreateNewMenu from './components/CreateNewMenu';
+
 export default function App() {
-  return <div />;
+  return (
+    <div>
+      <CreateNewMenu />
+    </div>
+  );
 }
