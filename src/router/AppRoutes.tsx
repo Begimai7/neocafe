@@ -1,11 +1,11 @@
-import CreateNewEmployees from '../components/createNewEmployees/CreateNewEmployees';
-// import WeekSchedule from '../components/createNewEmployees/WeekSchedule';
+// import SideBar from '../layout/SideBar';
+import AdminRoute from './AdminRoute';
 
 const AppRoutes = () => {
   return (
     <div>
-      <CreateNewEmployees />
-      {/* <WeekSchedule/> */}
+      {/* <SideBar /> */}
+      <AdminRoute/>
     </div>
   );
 };
