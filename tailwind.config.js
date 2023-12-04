@@ -7,7 +7,9 @@ export default {
     "./index.html",
     "./src/components/Toastify.tsx",
     "./src/components/CreateNewBranch.tsx",
-    "./src/components/UI/PhotoInput.tsx"
+    "./src/components/UI/PhotoInput.tsx",
+    "./src/components/createNewEmployees/WeekSchedule.tsx",
+
 
   ],
   theme: {

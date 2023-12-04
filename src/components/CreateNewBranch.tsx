@@ -4,6 +4,7 @@ import Input from './UI/Input';
 import closeIcon from '../assets/newBranchIcons/close.svg';
 import Button from './UI/Button';
 import PhotoInput from './UI/PhotoInput';
+import WeekSchedule from './createNewEmployees/WeekSchedule';
 
 const NewBranch: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(true);
@@ -76,7 +77,9 @@ const NewBranch: React.FC = () => {
           }}
         />
       </div>
-      <p>Заполните график работы</p>
+      <p className='font-bold mt-10 mb-6 text-2xl'>Заполните график работы</p>
+
+      <WeekSchedule />
       <div className="flex gap-6 mt-12">
         <Button styles="border border-[#00315D] py-4 w-[100%] rounded-md type='submit' text-[#00315D] font-semibold">
           Отмена
