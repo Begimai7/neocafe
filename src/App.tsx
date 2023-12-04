@@ -1,8 +1,8 @@
-import NewBranch from "./components/CreateNewBranch";
-
-
 function App() {
-  return <NewBranch />
+  return (
+    <div>
+      <AppRoutes />
+    </div>
+  );
 }
-
 export default App;
