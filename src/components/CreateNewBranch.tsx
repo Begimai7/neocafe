@@ -6,7 +6,11 @@ import Button from './UI/Button';
 import PhotoInput from './UI/PhotoInput';
 import WeekSchedule from './createNewEmployees/WeekSchedule';
 
-const NewBranch: React.FC = () => {
+interface NewBranchProps {
+  title: string;
+}
+
+const NewBranch: React.FC<NewBranchProps> = ({ title }) => {
   const [isOpen, setIsOpen] = useState<boolean>(true);
   const handleClose = () => setIsOpen(false);
 
@@ -19,7 +23,7 @@ const NewBranch: React.FC = () => {
       padding="32px"
     >
       <div className="flex items-center justify-between">
-        <h5 className="font-bold text-[24px]">Новый филиал</h5>
+        <h5 className="font-bold text-[24px]">{title}</h5>
         <img className="mb-[9px]" src={closeIcon} />
       </div>
       <p className="font-semibold mt-[24px] text-[22px]">
@@ -77,7 +81,7 @@ const NewBranch: React.FC = () => {
           }}
         />
       </div>
-      <p className='font-bold mt-10 mb-6 text-2xl'>Заполните график работы</p>
+      <p className="font-bold mt-10 mb-6 text-2xl">Заполните график работы</p>
 
       <WeekSchedule />
       <div className="flex gap-6 mt-12">
