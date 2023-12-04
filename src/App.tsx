@@ -1,5 +1,8 @@
 function App() {
-  <div />
+  return (
+    <div>
+      <AppRoutes />
+    </div>
+  );
 }
-
 export default App;
