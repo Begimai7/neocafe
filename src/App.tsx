@@ -1,11 +1,8 @@
-import AppRoutes from "./router/AppRoutes";
-
 function App() {
-  return  (
+  return (
     <div>
-      <AppRoutes/>
+      <AppRoutes />
     </div>
-  )
+  );
 }
-
 export default App;
