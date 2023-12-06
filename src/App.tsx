@@ -1,7 +1,9 @@
+import SignIn from "./components/barista/signIn/SignIn";
+
 function App() {
   return (
     <div>
-      <AppRoutes />
+      <SignIn />
     </div>
   );
 }
