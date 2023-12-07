@@ -5,7 +5,7 @@ interface InputProps {
   id?: string;
   name?: string;
   label?: string;
-  style?: React.CSSProperties;
+  className: string;
   placeholder?: string;
   onChange?: (value: string) => void;
 }
@@ -14,7 +14,7 @@ const Input: React.FC<InputProps> = ({
   id,
   name,
   label,
-  style,
+  className,
   placeholder,
   type,
   onChange,
@@ -26,7 +26,7 @@ const Input: React.FC<InputProps> = ({
   };
 
   return (
-    <div className="mb-4">
+    <div className={className}>
       <label htmlFor={id} className="block text-base text-gray-500">
         {label}
       </label>
@@ -36,8 +36,7 @@ const Input: React.FC<InputProps> = ({
         name={name}
         onChange={handleChange}
         placeholder={placeholder}
-        style={style}
-        className="mt-1 p-2 border rounded-md w-full focus:outline-none bg-[#EDEDED]"
+        className={`mt-1 p-2 border rounded-md w-full focus:outline-none bg-[#EDEDED] ${className}`}
       />
     </div>
   );

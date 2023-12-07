@@ -1,12 +1,13 @@
 import Modal from './UI/Modal';
 import { useState } from 'react';
 import closeIcon from '../assets/closeIcon.svg';
-import cloudIcon from '../assets/cloudIcon.svg';
 import Input from '../components/UI/Input';
 import CustomSelect from '../components/UI/CustomSelect';
 import Button from './UI/Button';
+import PhotoInput from './UI/PhotoInput';
+import plusIcon from '../assets/plusIcon.svg';
 
-const CreateNewMenu = () => {
+const CreateNewMenu: React.FC<{ title: string }> = ({ title }) => {
   const [isOpen, setIsOpen] = useState<boolean>(true);
 
   const handleClose = () => setIsOpen(false);
@@ -29,18 +30,15 @@ const CreateNewMenu = () => {
       >
         <div className="px-8 py-8">
           <div className="flex justify-between">
-            <p className="text-black text-xl font-semibold ">Новая позиция</p>
+            <p className="text-black text-xl font-semibold">{title}</p>
             <img src={closeIcon} />
           </div>
+          <p className="text-black text-base font-semibold mt-2">
+            Добавьте фотографию к позиции
+          </p>
+          <PhotoInput height="160px" />
 
-          <div className="bg-red-500 w-93 h-30 ">
-            <div className="border-2 border-dashed rounded">
-              <img className="" src={cloudIcon} />
-            </div>
-            fkefe
-          </div>
-
-          <p className="text-black text-xl font-semibold mt-6 mb-2.5 ">
+          <p className="text-black text-lg font-semibold mt-2">
             Наименование, категория и стоимость
           </p>
           <Input
@@ -48,7 +46,7 @@ const CreateNewMenu = () => {
             placeholder="Введите название новой позиции"
             type="text"
             label="Наименования"
-            style={{ width: '440px', padding: '10px 16px' }}
+            // style={{ width: '435px', padding: '8px 16px', marginBottom: '5px' }}
           />
           <div className="w-100 flex justify-between">
             <CustomSelect
@@ -58,13 +56,13 @@ const CreateNewMenu = () => {
                 control: (provided) => ({
                   ...provided,
                   width: '200px',
-                  padding: '2px 16px',
-                  borderRadius: '10px',
-                  background: '#EDEDED',
+                  padding: '1px 16px',
+                  borderRadius: '0.375rem;',
+                  backgroundColor: '#EDEDED',
                 }),
                 menu: (provided) => ({
                   ...provided,
-                  width: '200px',
+                  backgroundColor: '#EDEDED',
                 }),
               }}
             />
@@ -72,10 +70,9 @@ const CreateNewMenu = () => {
               placeholder="Введите стоимость"
               type="text"
               label="Стоимость"
-              style={{ width: '200px' }}
             />
           </div>
-          <p className="text-black text-xl font-semibold  ">
+          <p className="text-black text-base font-semibold mt-2 ">
             Состав блюда и граммовка
           </p>
           <div className="w-100 flex justify-between">
@@ -83,30 +80,28 @@ const CreateNewMenu = () => {
               placeholder="Например: Молоко"
               type="text"
               label="Наименование"
-              style={{ width: '200px' }}
             />
             <Input
               placeholder="Кол-во"
               type="text"
               label="Кол-во ( в гр, мл, л, кг)"
-              style={{ width: '200px' }}
+              // style={{ width: '200px', borderRadius: '10px' }}
             />
           </div>
           <Button
-            // handleClick={() => {}}
-            styles={
-              'w-[200px] border border-solid border-1 border-[#00315D] h-10 bg-[#00315D] text-white'
+            className={
+              'w-[200px] border border-solid border-1 border-[#00315D] h-10 bg-[#00315D] text-white mt-3 flex items-center justify-center'
             }
             type={'submit'}
             disabled={false}
           >
             Добавить еще
+            <img src={plusIcon} className="ml-2" />
           </Button>
-          <div className="w-100 flex justify-between">
+          <div className="w-100 flex justify-between mt-3">
             <Button
-              // handleClick={() => {}}
-              styles={
-                'w-[252px] bg-white border border-solid border-1 border-[#00315D] text-#00315D h-10'
+              className={
+                'w-[200px] bg-white border border-solid border-1 border-[#00315D] text-#00315D h-10'
               }
               type={'submit'}
               disabled={false}
@@ -114,9 +109,8 @@ const CreateNewMenu = () => {
               Отмена
             </Button>
             <Button
-              // handleClick={() => {}}
-              styles={
-                'w-[252px] border border-solid border-1 border-[#00315D] h-10 bg-[#00315D] text-white'
+              className={
+                'w-[200px] border border-solid border-1 border-[#00315D] h-10 bg-[#00315D] text-white'
               }
               type={'submit'}
               disabled={false}

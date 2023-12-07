@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 .toastify-opacity {
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.15);
-    width: 100vw;
-    height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.15);
+  width: 100vw;
+  height: 100vh;
 
-    /* fixed top-0 left-0 w-full h-full bg-black bg-opacity-50  */
-} 
+  /* fixed top-0 left-0 w-full h-full bg-black bg-opacity-50  */
+}

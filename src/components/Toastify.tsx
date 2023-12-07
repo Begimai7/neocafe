@@ -2,7 +2,12 @@ import { toast, ToastOptions } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function useToast() {
-  const Toastify = (title: string, message: string, type: string, setShowOverlay: React.Dispatch<React.SetStateAction<boolean>>) => {
+  const Toastify = (
+    title: string,
+    message: string,
+    type: string,
+    setShowOverlay: React.Dispatch<React.SetStateAction<boolean>>,
+  ) => {
     const toastOptions: ToastOptions = {
       position: 'top-right',
       autoClose: 10000,
