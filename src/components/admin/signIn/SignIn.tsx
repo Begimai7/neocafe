@@ -1,10 +1,11 @@
-import React from 'react';
-import Modal from '../UI/Modal';
-import img from '../../assets/adminSignIn/admin.png'
-import Button from '../UI/Button';
-import PassportInput from '../UI/PassportInput';
+import Modal from '../../UI/Modal';
+import img from '../../assets/adminSignIn/admin.png';
+import Button from '../../UI/Button';
+import PassportInput from '../../UI/PassportInput';
+import { useState } from 'react';
+
 const SignIn = () => {
-  const [isOpen, setIsOpen] = React.useState(true);
+  const [isOpen, setIsOpen] = useState(true);
   const handleClose = () => setIsOpen(true);
 
   return (
@@ -54,7 +55,9 @@ const SignIn = () => {
                   }}
                 />
               </div>
-              <Button styles={'w-full bg-[#5C7994] border mt-[33px] py-[19px]'}>Войти</Button>
+              <Button styles={'w-full bg-[#5C7994] border mt-[33px] py-[19px]'}>
+                Войти
+              </Button>
             </form>
           </div>
         </Modal>
