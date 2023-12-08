@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Input from './UI/Input';
 import Modal from './UI/Modal';
 import closeIcon from '../assets/closeIcon.svg';
@@ -29,7 +29,7 @@ const CreateNewToStore: React.FC<{ title: string }> = ({ title }) => {
               <p className="text-black text-2xl font-bold">{title}</p>
               <img src={closeIcon} />
             </div>
-            <p className="text-black text-xl font-semibold mt-6 mb-2.5 ">
+            <p className="text-black text-xl font-semibold mt-4 mb-2.5 ">
               Наименование, категория и стоимость
             </p>
             <Input
@@ -37,20 +37,14 @@ const CreateNewToStore: React.FC<{ title: string }> = ({ title }) => {
               placeholder="Введите название продукции"
               type="text"
               label="Наименования"
-              style={{ width: '534px', padding: '10px 16px' }}
             />
-            <div className="w-100 flex justify-between">
+            <div className="w-100 flex justify-between mb-5 mt-5">
               <Input
                 id="quantity"
                 placeholder="Например: 50кг"
                 type="text"
                 label="Кол-во (в гр, мл, л, кг)"
-                style={{
-                  width: '252px',
-                  padding: '10px 16px',
-                  borderRadius: '10px',
-                  marginTop: '8px',
-                }}
+                className="w-[252px]"
               />
               <CustomSelect
                 label="Категория"
@@ -59,8 +53,8 @@ const CreateNewToStore: React.FC<{ title: string }> = ({ title }) => {
                   control: (provided) => ({
                     ...provided,
                     width: '252px',
-                    padding: '4px 16px',
-                    borderRadius: '10px',
+                    padding: '2px 16px',
+                    borderRadius: '0.375rem;',
                     background: '#EDEDED',
                   }),
                   menu: (provided) => ({
@@ -76,28 +70,25 @@ const CreateNewToStore: React.FC<{ title: string }> = ({ title }) => {
                 placeholder="Например: 2кг"
                 type="text"
                 label="Минимальный лимит"
-                style={{
-                  width: '252px',
-                  padding: '10px 16px',
-                  borderRadius: '10px',
-                }}
+                className="w-[252px]"
               />
               <Input
                 id="arrivalDate"
                 placeholder="дд.мм.гггг"
                 type="text"
                 label="Дата прихода"
-                style={{
-                  width: '252px',
-                  padding: '10px 16px',
-                  borderRadius: '10px',
-                }}
+                // style={{
+                //   width: '252px',
+                //   padding: '10px 16px',
+                //   borderRadius: '10px',
+                // }}
+                className="w-[252px]"
               />
             </div>
-            <div className="w-100 flex justify-between">
+            <div className="w-100 flex justify-between mt-8">
               <Button
                 // handleClick={() => {}}
-                styles={
+                className={
                   'w-[252px] bg-white border border-solid border-1 border-[#00315D] text-#00315D h-10'
                 }
                 type={'submit'}
@@ -106,8 +97,7 @@ const CreateNewToStore: React.FC<{ title: string }> = ({ title }) => {
                 Отмена
               </Button>
               <Button
-                // handleClick={() => {}}
-                styles={
+                className={
                   'w-[252px] border border-solid border-1 border-[#00315D] h-10 bg-[#00315D] text-white'
                 }
                 type={'submit'}

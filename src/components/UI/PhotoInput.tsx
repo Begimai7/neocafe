@@ -6,8 +6,7 @@ interface PhotoInputProps {
   height?: string;
 }
 
-const PhotoInput: React.FC<PhotoInputProps> = ({height}) => {
-
+const PhotoInput: React.FC<PhotoInputProps> = ({ height }) => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const handleFileInputChange = () => {
@@ -48,11 +47,11 @@ const PhotoInput: React.FC<PhotoInputProps> = ({height}) => {
   const handleDragOver = (event: React.DragEvent<HTMLDivElement>) => {
     event.preventDefault();
   };
-  
+
   return (
     <div
       className="flex justify-center items-center h-[209px] mt-[16px] bg-[#F4F4F4]"
-      style={{height: height}}
+      style={{ height: height }}
       onDrop={handleFileDrop}
       onDragOver={handleDragOver}
     >
@@ -66,14 +65,14 @@ const PhotoInput: React.FC<PhotoInputProps> = ({height}) => {
         {selectedImage ? (
           <img
             src={selectedImage}
-            className="w-[187px] h-[95px] object-contain"
+            className="w-[187px] h-[50px] object-contain"
             alt="Selected Image"
           />
         ) : (
           <img src={image} alt="Uploaded Image" />
         )}
 
-        <p className="text-center max-w-[318px] font-semibold">
+        <p className="text-center max-w-[318px] font-semibold ">
           Перетащите изображение для изменения или{' '}
           <label
             htmlFor="new_branch"
