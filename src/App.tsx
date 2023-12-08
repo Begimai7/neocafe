@@ -1,9 +1,12 @@
-import NewBranch from "./components/CreateNewBranch";
+// import NewBranch from './components/CreateNewBranch';
+// import ColumnGroupingTable from './components/Table';
+import TableTabs from './components/Tabs';
 
 function App() {
   return (
     <div>
-      <NewBranch />
+      <TableTabs />
+      {/* <ColumnGroupingTable /> */}
     </div>
   );
 }
