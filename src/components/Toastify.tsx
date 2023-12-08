@@ -25,7 +25,7 @@ function useToast() {
 
     if (type === 'success' || type === 'error' || type === 'warning') {
       toast[type](
-        <div className="flex justify-center flex-col items-center p-16px min-w-[50vw] min-h-[10vh] text-black">
+        <div className="flex justify-center flex-col items-center p-16px min-w-[50vw] min-h-[10vh] text-black bg-blue-500">
           <h6 className="font-bold">{title}</h6>
           <p>{message}</p>
         </div>,
@@ -41,6 +41,8 @@ function useToast() {
 
 export default useToast;
 
+// Пример использоваия
+
 // const [showOverlay, setShowOverlay] = useState(false);
 //   const { Toastify } = useToast();
 
@@ -48,4 +50,4 @@ export default useToast;
 //     Toastify("Напоминание!", "Your warning message", "warning", setShowOverlay);
 //   };
 
-// {showOverlay && <div className="toastify-opacity"/>}
+// {showOverlay && <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50" />}

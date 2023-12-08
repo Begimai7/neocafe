@@ -10,7 +10,7 @@ interface PasswordInputProps {
   onChange?: (value: string) => void;
 }
 
-const PasswordInput: React.FC<PasswordInputProps> = ({
+const PassportInput: React.FC<PasswordInputProps> = ({
   id,
   label,
   style,
@@ -41,9 +41,8 @@ const PasswordInput: React.FC<PasswordInputProps> = ({
           style={style}
         />
         <button
-          type="button"
           onClick={toggleShowPassword}
-          className=" absolute inset-y-0 right-4 flex items-center justify-center px-0 mt-[30px]"
+          className="relative right-10 top-1"
         >
           {showPassword ? <img src={hide} /> : <img src={show} />}
         </button>
