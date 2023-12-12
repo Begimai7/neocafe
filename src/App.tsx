@@ -1,9 +1,12 @@
-import AppRoutes from './router/AppRoutes';
+// import AppRoutes from './router/AppRoutes';
+
+import Card from "./components/Card";
 
 function App() {
   return (
     <div>
-      <AppRoutes />
+      <Card />
+      {/* <AppRoutes /> */}
     </div>
   );
 }
