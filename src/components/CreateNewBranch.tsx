@@ -4,7 +4,7 @@ import Input from './UI/Input';
 import closeIcon from '../assets/newBranchIcons/close.svg';
 import Button from './UI/Button';
 import PhotoInput from './UI/PhotoInput';
-import WeekSchedule from './createNewEmployees/WeekSchedule';
+import WeekSchedule from './admin/createNewEmployees/WeekSchedule';
 
 interface NewBranchProps {
   title: string;
@@ -43,12 +43,7 @@ const NewBranch: React.FC<NewBranchProps> = ({ title }) => {
           placeholder="Название филиала"
           type="text"
           // label="Название кофейни"
-          style={{
-            padding: '16px 18px',
-            backgroundColor: '#EDEDED',
-            width: '100%',
-            borderRadius: '10px',
-          }}
+          className="py-4 px-[18px] bg-[#EDEDED] w-full rounded-[10px]"
         />
       </div>
       <div>
@@ -58,12 +53,7 @@ const NewBranch: React.FC<NewBranchProps> = ({ title }) => {
           name="adress of branch"
           placeholder="Адрес нового филиала"
           type="text"
-          style={{
-            padding: '16px 18px',
-            backgroundColor: '#EDEDED',
-            width: '100%',
-            borderRadius: '10px',
-          }}
+          className="py-4 px-[18px] bg-[#EDEDED] w-full rounded-[10px]"
         />
       </div>
       <div>
@@ -73,22 +63,17 @@ const NewBranch: React.FC<NewBranchProps> = ({ title }) => {
           name="phone number of branch"
           placeholder="Введите номер телефона"
           type="tel"
-          style={{
-            padding: '16px 18px',
-            backgroundColor: '#EDEDED',
-            width: '100%',
-            borderRadius: '10px',
-          }}
+          className="py-4 px-[18px] bg-[#EDEDED] w-full rounded-[10px]"
         />
       </div>
       <p className="font-bold mt-10 mb-6 text-2xl">Заполните график работы</p>
 
       <WeekSchedule />
       <div className="flex gap-6 mt-12">
-        <Button styles="border border-[#00315D] py-4 w-[100%] rounded-md type='submit' text-[#00315D] font-semibold">
+        <Button className="border border-[#00315D] py-4 w-[100%] rounded-md type='submit' text-[#00315D] font-semibold">
           Отмена
         </Button>
-        <Button styles="bg-[#00315D] py-4 w-[100%] rounded-md type='submit' text-white font-semibold">
+        <Button className="bg-[#00315D] py-4 w-[100%] rounded-md type='submit' text-white font-semibold">
           Сохранить
         </Button>
       </div>

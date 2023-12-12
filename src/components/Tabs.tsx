@@ -39,6 +39,10 @@ function a11yProps(index: number) {
   };
 }
 
+// interface TabProps {
+//   label: string;
+// }
+
 const TableTabs = () => {
   const [value, setValue] = React.useState(0);
 
@@ -65,6 +69,7 @@ const TableTabs = () => {
       <CustomTabPanel value={value} index={1}>
         <ColumnGroupingTable />
       </CustomTabPanel>
+
       <CustomTabPanel value={value} index={2}>
         <ColumnGroupingTable />
       </CustomTabPanel>
@@ -80,9 +85,9 @@ const StyledTabs = styled(Tabs)(() => ({
     backgroundColor: '#00315D',
   },
   '.MuiTab-root.Mui-selected': {
-    color: '#00315D', 
+    color: '#00315D',
     fontWeight: '700',
-  }
+  },
 }));
 
 const StyledTab = styled(Tab)(() => ({

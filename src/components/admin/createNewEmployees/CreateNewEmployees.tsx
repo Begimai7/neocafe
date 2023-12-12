@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import Modal from '../UI/Modal';
+import Modal from '../../UI/Modal';
 import cross from '../../assets/admineEmployeesCreate/cross.svg';
-import Input from '../UI/Input';
-import CustomSelect from '../UI/CustomSelect';
+import Input from '../../UI/Input';
+import CustomSelect from '../../UI/CustomSelect';
 import WeekSchedule from './WeekSchedule';
 
 const CreateNewEmployees = () => {

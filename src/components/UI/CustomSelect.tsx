@@ -1,5 +1,5 @@
-import React from 'react';
 import Select, { StylesConfig } from 'react-select';
+import OptionTypeBase from 'react-select';
 
 interface CustomSelectProps {
   options: { value: string; label: string }[];
@@ -8,7 +8,7 @@ interface CustomSelectProps {
   containerClassName?: string;
   menuWidth?: string;
   label?: string;
-  styles?: StylesConfig;
+  styles?: StylesConfig<OptionTypeBase, false>;
 }
 
 const CustomSelect: React.FC<CustomSelectProps> = ({
@@ -20,7 +20,7 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
   label,
   styles: customStyles = {},
 }) => {
-  const defaultStyles: StylesConfig = {
+  const defaultStyles: StylesConfig<OptionTypeBase> = {
     option: (provided) => ({
       ...provided,
       borderBottom: '1px solid #ccc',
@@ -34,18 +34,32 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
         textTransform: 'none',
       },
     }),
-    control: (provided) => ({
+    // control: (provided) => ({
+    //   ...provided,
+    //   background: '#EDEDED',
+    //   width: menuWidth,
+    //   marginTop: '5px',
+    //   '&:hover': {
+    //     background: '#EDEDED',
+    //   },
+    // }),
+    control: (provided, state) => ({
       ...provided,
-      background: '#EDEDED',
+      background: state.isFocused ? '#EDEDED' : '#EDEDED',
       width: menuWidth,
       marginTop: '5px',
+      '&:hover, &:focus': {
+        borderColor: 'none !important',
+      },
     }),
+
     menu: (provided) => ({
       ...provided,
       width: menuWidth,
-      background: 'none',
+      // background: 'none',
       borderRadius: 'none',
       boxShadow: 'none',
+      backgroundColor: '#9e2626',
     }),
     placeholder: (provided) => ({
       ...provided,
@@ -61,7 +75,7 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
   return (
     <div>
       {label && (
-        <label className="block text-base text-gray-500 mb-2">{label}</label>
+        <label className="block text-base text-gray-500 mb-1.5">{label}</label>
       )}
       <Select
         options={options}
