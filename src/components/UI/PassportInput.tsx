@@ -5,15 +5,15 @@ import hide from '../../assets/passportInput/eye.svg';
 interface PasswordInputProps {
   id: string;
   label?: string;
-  style?: React.CSSProperties;
+  className?: string;
   placeholder?: string;
   onChange?: (value: string) => void;
 }
 
-const PassportInput: React.FC<PasswordInputProps> = ({
+const PasswordInput: React.FC<PasswordInputProps> = ({
   id,
   label,
-  style,
+  className,
   placeholder,
   onChange,
 }) => {
@@ -33,16 +33,16 @@ const PassportInput: React.FC<PasswordInputProps> = ({
       <label htmlFor={id}>{label}</label>
       <div className="relative inline-block">
         <input
-          className="text-center text-black font-semibold text-lg"
+          className={className}
           type={showPassword ? 'text' : 'password'}
           id={id}
           onChange={handleChange}
           placeholder={placeholder}
-          style={style}
         />
         <button
+          type="button"
           onClick={toggleShowPassword}
-          className="relative right-10 top-1"
+          className=" absolute inset-y-0 right-4 top-8 flex items-center justify-center "
         >
           {showPassword ? <img src={hide} /> : <img src={show} />}
         </button>
@@ -51,4 +51,4 @@ const PassportInput: React.FC<PasswordInputProps> = ({
   );
 };
 
-export default PassportInput;
+export default PasswordInput;

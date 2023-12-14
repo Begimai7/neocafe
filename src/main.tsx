@@ -11,5 +11,5 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       <App />
       <ToastContainer icon={false} />
     </BrowserRouter>
-  </React.StrictMode>,
+  </React.StrictMode>
 );

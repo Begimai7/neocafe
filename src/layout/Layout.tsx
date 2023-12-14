@@ -1,14 +1,14 @@
-import React from 'react'
-import SideBar from './SideBar'
-import { Outlet } from 'react-router-dom'
+// import React from 'react';
+import SideBar from './SideBar';
+import { Outlet } from 'react-router-dom';
 
 const Layout = () => {
   return (
     <div>
-        <SideBar/>
-        <Outlet/>
+      <SideBar />
+      <Outlet />
     </div>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;
