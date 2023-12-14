@@ -13,7 +13,7 @@ const Modal: FC<ModalProps> = ({ children, open, onClose, className }) => {
     : 'hidden';
 
   return (
-    <div className={modalClasses} onClick={() => onClose()}>
+    <div className={`${modalClasses} ${className}`} onClick={() => onClose()}>
       <div
         className={`modal-content ${className}`}
         onClick={(e) => e.stopPropagation()}

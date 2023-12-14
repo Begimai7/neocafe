@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Modal from '../../UI/Modal';
-import cross from '../../assets/admineEmployeesCreate/cross.svg';
+// import cross from '../../assets/admineEmployeesCreate/cross.svg';
+import cross from '../../../assets/admineEmployeesCreate/cross.svg'
 import Input from '../../UI/Input';
 import CustomSelect from '../../UI/CustomSelect';
 import WeekSchedule from './WeekSchedule';
@@ -21,9 +22,7 @@ const CreateNewEmployees = () => {
       <Modal
         open={isOpen}
         onClose={handleClose}
-        width="551px"
-        borderRadius="30px"
-        backgroundColor="#FEFEFE"
+        className="w=[551px] rounded-[30px] bg-[#FEFEFE]"
       >
         <div className="m-5">
           <div className="flex justify-between items-center">
@@ -41,11 +40,7 @@ const CreateNewEmployees = () => {
                 <Input
                   label="Имя"
                   placeholder="Как зовут сотрудника"
-                  style={{
-                    padding: '16px 16px',
-                    borderRadius: '10px',
-                    color: 'black',
-                  }}
+                  className="py-6 rounded-xl text-black"
                 />
                 <CustomSelect
                   label="Должность"
@@ -53,8 +48,8 @@ const CreateNewEmployees = () => {
                   styles={{
                     control: (provided) => ({
                       ...provided,
-                      borderRadius: '10px',
-                      padding: '10px ',
+                      borderRadius: '12px',
+                      padding: '14px ',
                       background: '#EDEDED',
                       marginBottom: '16px',
                     }),
@@ -67,21 +62,13 @@ const CreateNewEmployees = () => {
                   type="date"
                   label="День рождения"
                   placeholder="01.01.1991"
-                  style={{
-                    padding: '16px 16px',
-                    borderRadius: '10px',
-                    color: 'black',
-                  }}
+                  className="py-6 rounded-xl text-black"
                 />
                 <Input
                   type="text"
                   label="Номер телефона"
                   placeholder="Введите номер телефона"
-                  style={{
-                    padding: '16px 16px',
-                    borderRadius: '10px',
-                    color: 'black',
-                  }}
+                  className="py-6 rounded-xl text-black"
                 />
                 <CustomSelect
                   label="Филиал"
@@ -89,8 +76,8 @@ const CreateNewEmployees = () => {
                   styles={{
                     control: (provided) => ({
                       ...provided,
-                      borderRadius: '10px',
-                      padding: '10px ',
+                      borderRadius: '12px',
+                      padding: '14px ',
                       background: '#EDEDED',
                       marginBottom: '16px',
                     }),
