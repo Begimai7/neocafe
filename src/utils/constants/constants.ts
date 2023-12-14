@@ -1,7 +1,7 @@
-import WidgetsIcon from '@mui/icons-material/Widgets';
 import InventoryIcon from '@mui/icons-material/Inventory';
 import ApartmentIcon from '@mui/icons-material/Apartment';
 import Person2Icon from '@mui/icons-material/Person2';
+import WidgetsIcon from '@mui/icons-material/Widgets';
 import { OverridableComponent } from '@mui/material/OverridableComponent';
 import { SvgIconTypeMap } from '@mui/material/SvgIcon';
 

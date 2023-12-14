@@ -4,8 +4,13 @@ import Input from './UI/Input';
 import closeIcon from '../assets/newBranchIcons/close.svg';
 import Button from './UI/Button';
 import PhotoInput from './UI/PhotoInput';
+import WeekSchedule from './admin/createNewEmployees/WeekSchedule';
 
-const NewBranch: React.FC = () => {
+interface NewBranchProps {
+  title: string;
+}
+
+const NewBranch: React.FC<NewBranchProps> = ({ title }) => {
   const [isOpen, setIsOpen] = useState<boolean>(true);
   const handleClose = () => setIsOpen(false);
 
@@ -18,7 +23,7 @@ const NewBranch: React.FC = () => {
       padding="32px"
     >
       <div className="flex items-center justify-between">
-        <h5 className="font-bold text-[24px]">Новый филиал</h5>
+        <h5 className="font-bold text-[24px]">{title}</h5>
         <img className="mb-[9px]" src={closeIcon} />
       </div>
       <p className="font-semibold mt-[24px] text-[22px]">
@@ -38,12 +43,7 @@ const NewBranch: React.FC = () => {
           placeholder="Название филиала"
           type="text"
           // label="Название кофейни"
-          style={{
-            padding: '16px 18px',
-            backgroundColor: '#EDEDED',
-            width: '100%',
-            borderRadius: '10px',
-          }}
+          className="py-4 px-[18px] bg-[#EDEDED] w-full rounded-[10px]"
         />
       </div>
       <div>
@@ -53,12 +53,7 @@ const NewBranch: React.FC = () => {
           name="adress of branch"
           placeholder="Адрес нового филиала"
           type="text"
-          style={{
-            padding: '16px 18px',
-            backgroundColor: '#EDEDED',
-            width: '100%',
-            borderRadius: '10px',
-          }}
+          className="py-4 px-[18px] bg-[#EDEDED] w-full rounded-[10px]"
         />
       </div>
       <div>
@@ -68,20 +63,17 @@ const NewBranch: React.FC = () => {
           name="phone number of branch"
           placeholder="Введите номер телефона"
           type="tel"
-          style={{
-            padding: '16px 18px',
-            backgroundColor: '#EDEDED',
-            width: '100%',
-            borderRadius: '10px',
-          }}
+          className="py-4 px-[18px] bg-[#EDEDED] w-full rounded-[10px]"
         />
       </div>
-      <p>Заполните график работы</p>
+      <p className="font-bold mt-10 mb-6 text-2xl">Заполните график работы</p>
+
+      <WeekSchedule />
       <div className="flex gap-6 mt-12">
-        <Button styles="border border-[#00315D] py-4 w-[100%] rounded-md type='submit' text-[#00315D] font-semibold">
+        <Button className="border border-[#00315D] py-4 w-[100%] rounded-md type='submit' text-[#00315D] font-semibold">
           Отмена
         </Button>
-        <Button styles="bg-[#00315D] py-4 w-[100%] rounded-md type='submit' text-white font-semibold">
+        <Button className="bg-[#00315D] py-4 w-[100%] rounded-md type='submit' text-white font-semibold">
           Сохранить
         </Button>
       </div>
