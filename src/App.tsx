@@ -1,9 +1,12 @@
-import AppRoutes from './router/AppRoutes';
+// import AppRoutes from './router/AppRoutes';
+
+import SignIn from "./components/admin/signIn/SignIn";
 
 function App() {
   return (
     <div>
-      <AppRoutes />
+      {/* <AppRoutes /> */}
+      <SignIn/>
     </div>
   );
 }

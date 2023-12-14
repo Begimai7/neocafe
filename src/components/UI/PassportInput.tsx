@@ -42,7 +42,7 @@ const PasswordInput: React.FC<PasswordInputProps> = ({
         <button
           type="button"
           onClick={toggleShowPassword}
-          className=" absolute inset-y-0 right-4 flex items-center justify-center px-0"
+          className=" absolute inset-y-0 right-4 top-8 flex items-center justify-center "
         >
           {showPassword ? <img src={hide} /> : <img src={show} />}
         </button>

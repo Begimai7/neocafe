@@ -1,27 +1,20 @@
 import Modal from '../../UI/Modal';
-import img from '../../assets/adminSignIn/admin.png';
 import Button from '../../UI/Button';
 import PassportInput from '../../UI/PassportInput';
 import { useState } from 'react';
+import Input from '../../UI/Input';
 
 const SignIn = () => {
   const [isOpen, setIsOpen] = useState(true);
-  const handleClose = () => setIsOpen(true);
+  const handleClose = () => setIsOpen(false);
 
   return (
     <div>
-      <div
-        className="bg-cover bg-center w-full h-screen"
-        style={{
-          backgroundImage: `url(${img})`,
-        }}
-      >
+      <div className="bg-cover bg-center w-full h-screen bg-adminImg">
         <Modal
           open={isOpen}
           onClose={handleClose}
-          width="auto"
-          height="auto"
-          borderRadius="20px"
+          className="w-[614px] h-[548px] rounded-3xl"
         >
           <div className="p-[40px]">
             <div className="text-center">
@@ -29,33 +22,17 @@ const SignIn = () => {
             </div>
             <form className="">
               <div className="mb-4 text-center mt-[32px]">
-                <label
-                  htmlFor="phone-number"
-                  className="text-lg font-semibold "
-                >
-                  <input
-                    type="text"
-                    id="phone-number"
-                    className="block rounded-xl py-[22px] mt-[48px] text-center outline-none text-black text-xl font-semibold"
-                    placeholder="Логин"
-                    required
-                    style={{ backgroundColor: '#EDEDED', width: '100%' }}
-                  />
-                </label>
+                <Input
+                  placeholder="Логин"
+                  className=" py-6 w-full rounded-xl text-black text-center"
+                />
                 <PassportInput
                   placeholder="Пароль"
                   id="passport-input"
-                  style={{
-                    width: '534px',
-                    background: '#EDEDED',
-                    borderRadius: '10px',
-                    padding: '22px',
-                    outline: 'none',
-                    marginTop: '32px',
-                  }}
+                  className="w-[534px] rounded-xl bg-[#EDEDED] py-6 mt-[32px] outline-none text-center text-black"
                 />
               </div>
-              <Button styles={'w-full bg-[#5C7994] border mt-[33px] py-[19px]'}>
+              <Button className="w-full bg-[#00315D] mt-[33px] py-6 text-white">
                 Войти
               </Button>
             </form>

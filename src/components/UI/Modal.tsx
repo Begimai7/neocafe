@@ -9,11 +9,11 @@ interface ModalProps {
 
 const Modal: FC<ModalProps> = ({ children, open, onClose, className }) => {
   const modalClasses = open
-    ? 'fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 shadow-md z-50 overflow-y-auto bg-white'
+    ? 'fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 shadow-md z-50 overflow-y-auto bg-white '
     : 'hidden';
 
   return (
-    <div className={modalClasses} onClick={() => onClose()}>
+    <div className={`${modalClasses} ${className}`} onClick={() => onClose()}>
       <div
         className={`modal-content ${className}`}
         onClick={(e) => e.stopPropagation()}
