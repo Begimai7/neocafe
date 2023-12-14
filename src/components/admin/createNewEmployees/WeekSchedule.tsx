@@ -34,16 +34,10 @@ const WeekSchedule: React.FC = () => {
             <tr className="pb-4">
               <td>{day.day}</td>
               <td>
-                <div className="w-[19px] h-[19px]">
+                <div className="">
                   <Input
                     type="checkbox"
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      transform: 'scale(1.8)',
-                      backgroundColor: '#C1C1C3',
-                      color: 'white',
-                    }}
+                    className="w-full h-full text-white scale-110	"
                   />
                 </div>
               </td>
