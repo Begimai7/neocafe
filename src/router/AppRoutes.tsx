@@ -1,14 +1,44 @@
-// import SideBar from '../layout/SideBar';
-import SideBar from '../layout/SideBar';
-import AdminRoute from './AdminRoute';
+import { createBrowserRouter } from 'react-router-dom';
+import BaristaLayout from '../layout/BaristaLayout';
 
-const AppRoutes = () => {
-  return (
-    <div>
-      <SideBar />
-      <AdminRoute/>
-    </div>
-  );
-};
+import Orders from '../pages/barista/Orders';
+import Menu from '../pages/barista/Menu';
+import Profile from '../pages/barista/Profile';
 
-export default AppRoutes;
+import OrderCard from '../components/barista/orders/OrderCard';
+
+export const router = createBrowserRouter(
+  [
+    {
+      path: '/',
+      element: '',
+      children: [
+        {
+          path: '/barista',
+          element: <BaristaLayout />,
+          children: [
+            {
+              path: 'orders',
+              element: <Orders />,
+              children: [
+                {
+                  path: ':name',
+                  element: <OrderCard />,
+                },
+              ],
+            },
+            {
+              path: 'menu',
+              element: <Menu />,
+            },
+            {
+              path: 'profile',
+              element: <Profile />,
+            },
+          ],
+        },
+      ],
+    },
+  ],
+  // ),
+);
