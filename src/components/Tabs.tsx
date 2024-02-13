@@ -39,10 +39,6 @@ function a11yProps(index: number) {
   };
 }
 
-// interface TabProps {
-//   label: string;
-// }
-
 const TableTabs = () => {
   const [value, setValue] = React.useState(0);
 

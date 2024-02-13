@@ -34,7 +34,7 @@ export default function SideBar() {
   return (
     <>
       <Box className="flex justify-between text-white text">
-        <Drawer variant="permanent" className=' justify-between'>
+        <Drawer variant="permanent" className='justify-between'>
           <div>
             <div style={{ marginTop: '2rem', marginLeft:'1rem'}}>
               <img src={neocafe} alt="" />
