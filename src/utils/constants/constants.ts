@@ -7,9 +7,9 @@ import { SvgIconTypeMap } from '@mui/material/SvgIcon';
 import menuIcon from '../../assets/sideBar/bookOpen.svg';
 import orderIcon from '../../assets/sideBar/notepad.svg';
 import profileOcon from '../../assets/sideBar/userCircle.svg';
-// import capuccino from '../../assets/orderIcons/cappuccino.png';
-// import latte from '../../assets/orderIcons/latte.png';
-// import americano from '../../assets/orderIcons/americano.png';
+import capuccino from '../../assets/orderIcons/cappuccino.png';
+import latte from '../../assets/orderIcons/latte.png';
+import americano from '../../assets/orderIcons/americano.png';
 
 // Update the type definition for the icon property
 type SideBarMenu = {
@@ -19,6 +19,16 @@ type SideBarMenu = {
   icon: OverridableComponent<SvgIconTypeMap<unknown, 'svg'>>; // Update the type for the icon property
   muiName: string; // Optional - to store MUI icon name if needed
 };
+
+interface PanelDataTypes {
+  id: number;
+  order: string;
+  price: number | null;
+  cost: number | null;
+  milk: string;
+  syrup: string;
+  img: string;
+}
 
 export const sideBarMenu: SideBarMenu[] = [
   {
@@ -348,43 +358,43 @@ export const notificationData = [
   },
 ];
 
-export const panelData = [
-  // {
-  //   id: 1,
-  //   order: 'Капучино',
-  //   img: capuccino,
-  //   price: 140,
-  //   milk: 'коровье молоко',
-  //   syrup: 'клубничный сироп',
-  //   cost: 0,
-  // },
-  // {
-  //   id: 2,
-  //   order: 'Латте',
-  //   img: latte,
-  //   price: 140,
-  //   milk: 'коровье молоко',
-  //   syrup: 'клубничный сироп',
-  //   cost: 0,
-  // },
-  // {
-  //   id: 3,
-  //   order: 'Американо',
-  //   img: americano,
-  //   price: 140,
-  //   milk: 'коровье молоко',
-  //   syrup: 'клубничный сироп',
-  //   cost: 0,
-  // },
-  // {
-  //   id: 4,
-  //   order: 'Американо',
-  //   img: americano,
-  //   price: 140,
-  //   milk: 'коровье молоко',
-  //   syrup: 'клубничный сироп',
-  //   cost: 0,
-  // },
+export const panelData: PanelDataTypes[]  = [
+  {
+    id: 1,
+    order: 'Капучино',
+    img: capuccino,
+    price: 140,
+    milk: 'коровье молоко',
+    syrup: 'клубничный сироп',
+    cost: 0,
+  },
+  {
+    id: 2,
+    order: 'Латте',
+    img: latte,
+    price: 140,
+    milk: 'коровье молоко',
+    syrup: 'клубничный сироп',
+    cost: 0,
+  },
+  {
+    id: 3,
+    order: 'Американо',
+    img: americano,
+    price: 140,
+    milk: 'коровье молоко',
+    syrup: 'клубничный сироп',
+    cost: 0,
+  },
+  {
+    id: 4,
+    order: 'Американо',
+    img: americano,
+    price: 140,
+    milk: 'коровье молоко',
+    syrup: 'клубничный сироп',
+    cost: 0,
+  },
 ];
 
 
