@@ -30,33 +30,38 @@ interface PanelDataTypes {
   img: string;
 }
 
+export type TabsData = {
+  title: string;
+  path: string;
+}
+
 export const sideBarMenu: SideBarMenu[] = [
   {
     id: 1,
     title: 'Меню',
     icon: WidgetsIcon,
-    path: '/menu/',
+    path: 'menu',
     muiName: 'WidgetsIcon', // Example to store the MUI icon name
   },
   {
     id: 2,
     title: 'Склад',
     icon: InventoryIcon,
-    path: '/stock/',
+    path: 'stock',
     muiName: 'InventoryIcon', // Example to store the MUI icon name
   },
   {
     id: 3,
     title: 'Филиалы',
     icon: ApartmentIcon,
-    path: '/branches/',
+    path: 'branches',
     muiName: 'ApartmentIcon', // Example to store the MUI icon name
   },
   {
     id: 4,
     title: 'Сотрудники',
     icon: Person2Icon,
-    path: '/employees/',
+    path: 'employees',
     muiName: 'Person2Icon', // Example to store the MUI icon name
   },
 ];
@@ -85,7 +90,7 @@ export const sidebarBarista = [
 export const ordersData = [
   {
     id: 1,
-    placeFood: 'На вынос',
+    placeFood: 'takeaway',
     numberTable: 'M-47',
     status: 'new',
     nameOfWaiters: 'Valerinaaaaaa',
@@ -358,7 +363,7 @@ export const notificationData = [
   },
 ];
 
-export const panelData: PanelDataTypes[]  = [
+export const panelData: PanelDataTypes[] = [
   {
     id: 1,
     order: 'Капучино',
@@ -397,4 +402,35 @@ export const panelData: PanelDataTypes[]  = [
   },
 ];
 
+export const orderTabsData: TabsData[] = [
+  {
+    path: 'takeaway',
+    title: 'На вынос',
+  },
+  {
+    path: 'establishment',
+    title: 'В заведении',
+  },
+];
 
+export const profileTabsData: TabsData[] = [
+  {
+    path: 'personalData',
+    title: 'Личные данные',
+  },
+  {
+    path: 'schedule',
+    title: 'График работы',
+  },
+];
+
+
+
+export const stockTableColumns = [
+  { id: 'numbering', label: '№', minWidth: 56 },
+  { id: 'name', label: 'Наименование', minWidth: 100 },
+  { id: 'quantity', label: 'Количество', minWidth: 170 },
+  { id: 'limit', label: 'Лимит', minWidth: 170 },
+  { id: 'date', label: 'Дата прихода', minWidth: 170 },
+  { id: 'redaction', label: 'Ред.', minWidth: 60 },
+];

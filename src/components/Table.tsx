@@ -14,25 +14,7 @@ import {
 import icon from '../assets/tableIcons/DotsThreeVertical.svg';
 import deleteIcon from '../assets/tableIcons/dustbin.svg';
 import redactionIcon from '../assets/tableIcons/Pencil.svg';
-
-// import Button from './UI/Button';
-
-interface Column {
-  id: keyof DataRows;
-  label: string;
-  minWidth?: number;
-  align?: 'right';
-  format?: (value: number) => string;
-}
-
-const columns: Column[] = [
-  { id: 'numbering', label: '№', minWidth: 56 },
-  { id: 'name', label: 'Наименование', minWidth: 100 },
-  { id: 'quantity', label: 'Количество', minWidth: 170 },
-  { id: 'limit', label: 'Лимит', minWidth: 170 },
-  { id: 'date', label: 'Дата прихода', minWidth: 170 },
-  { id: 'redaction', label: 'Ред.', minWidth: 60 },
-];
+// import { stockTableColumns } from '../utils/constants/constants';
 
 interface DataRows {
   id: number;
@@ -98,7 +80,19 @@ const rows: DataRows[] = [
   },
 ];
 
-export default function ColumnGroupingTable() {
+interface TableColumn {
+  id: keyof DataRows;
+  label: string;
+  minWidth?: number;
+  align?: 'right';
+  format?: (value: number) => string;
+}
+
+interface TableProps {
+  coloumnData: TableColumn[]
+}
+
+const ColumnGroupingTable: React.FC<TableProps> = ({ coloumnData }) => {
   const [buttonId, setButtonId] = React.useState<number | null>(null);
   const [page, setPage] = React.useState(1);
   const [rowsPerPage] = React.useState(5);
@@ -116,6 +110,7 @@ export default function ColumnGroupingTable() {
   };
 
   const handleChangePage = (event: unknown, newPage: number) => {
+    console.log(event, 'event')
     setPage(newPage);
   };
 
@@ -129,7 +124,7 @@ export default function ColumnGroupingTable() {
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
             <TableRow>
-              {columns.map((column) => (
+              {coloumnData.map((column) => (
                 <StyledHeadTableCell
                   key={column.id}
                   align={column.align}
@@ -168,12 +163,11 @@ export default function ColumnGroupingTable() {
                           onClick={handleClick}
                           className="border h-10 flex gap-2 items-center p-2 bg-white max-w-10"
                         >
-                          <img className='mt-0.5' src={deleteIcon} />
+                          <img className="mt-0.5" src={deleteIcon} />
                           Удалить
                         </button>
-                        <button 
-                        className="border h-10 flex gap-2 items-center p-2 bg-white">
-                          <img className='mt-0.5' src={redactionIcon} />
+                        <button className="border h-10 flex gap-2 items-center p-2 bg-white">
+                          <img className="mt-0.5" src={redactionIcon} />
                           Редактировать
                         </button>
                       </div>
@@ -194,7 +188,9 @@ export default function ColumnGroupingTable() {
       </Stack>
     </Paper>
   );
-}
+};
+
+export default ColumnGroupingTable;
 
 const StyledHeadTableCell = styled(TableCell)(() => ({
   borderBottom: '2px solid #171717',
@@ -202,7 +198,7 @@ const StyledHeadTableCell = styled(TableCell)(() => ({
 }));
 
 const StyledTableRow = styled(TableRow)(() => ({
-  height: '86px',
+  height: '79px',
 }));
 
 const StyledTableCell = styled(TableCell)(() => ({

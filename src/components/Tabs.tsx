@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import styled from '@emotion/styled';
 import ColumnGroupingTable from './Table';
+import { stockTableColumns } from '../utils/constants/constants';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -60,14 +61,14 @@ const TableTabs = () => {
         </StyledTabs>
       </Box>
       <CustomTabPanel value={value} index={0}>
-        <ColumnGroupingTable />
+      <ColumnGroupingTable coloumnData={stockTableColumns} />
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
-        <ColumnGroupingTable />
+      <ColumnGroupingTable coloumnData={stockTableColumns} />
       </CustomTabPanel>
 
       <CustomTabPanel value={value} index={2}>
-        <ColumnGroupingTable />
+        <ColumnGroupingTable coloumnData={stockTableColumns} />
       </CustomTabPanel>
     </Box>
   );

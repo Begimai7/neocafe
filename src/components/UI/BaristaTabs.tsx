@@ -1,12 +1,57 @@
 // import { FC } from 'react';
 import { Tabs, Tab, Box, Typography, styled } from '@mui/material';
-import React from 'react';
-import OrderNavlink from '../barista/orders/OrderNavlink';
+import React, { FC } from 'react';
+// import { Link } from 'react-router-dom';
+import { TabsData } from '../../utils/constants/constants';
+// import OrderNavlink from '../barista/orders/OrderNavlink';
+
+interface BaristaTabsProps {
+  children?: React.ReactNode;
+  labels: TabsData[];
+}
 
 interface TabPanelProps {
   children?: React.ReactNode;
   index: number;
   value: number;
+}
+
+function samePageLinkNavigation(
+  event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+) {
+  if (
+    event.defaultPrevented ||
+    event.button !== 0 || // ignore everything but left-click
+    event.metaKey ||
+    event.ctrlKey ||
+    event.altKey ||
+    event.shiftKey
+  ) {
+    return false;
+  }
+  return true;
+}
+
+interface LinkTabProps {
+  label?: string;
+  href?: string;
+  selected?: boolean;
+}
+
+function LinkTab(props: LinkTabProps) {
+  return (
+    <Tab
+      component="a"
+      onClick={(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+        // Routing libraries handle this, you can remove the onClick handle when using them.
+        if (samePageLinkNavigation(event)) {
+          event.preventDefault();
+        }
+      }}
+      aria-current={props.selected && 'page'}
+      {...props}
+    />
+  );
 }
 
 function CustomTabPanel(props: TabPanelProps) {
@@ -29,37 +74,45 @@ function CustomTabPanel(props: TabPanelProps) {
   );
 }
 
-function a11yProps(index: number) {
-  return {
-    id: `simple-tab-${index}`,
-    'aria-controls': `simple-tabpanel-${index}`,
-  };
-}
-
-const BaristaTabs = () => {
+const BaristaTabs: FC<BaristaTabsProps> = ({ children, labels }) => {
   const [value, setValue] = React.useState<number>(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-    setValue(newValue);
+    if (
+      event.type !== 'click' ||
+      (event.type === 'click' &&
+        samePageLinkNavigation(
+          event as React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+        ))
+    ) {
+      setValue(newValue);
+    }
   };
+
+  const tabs = labels.map((label) => {
+    console.log(label, 'label');
+    
+    return <StyledTab label={label.title} href={label.path} />;
+  });
+
   return (
-    <div className="w-[100%]">
+    <div className="w-full">
       <Box sx={{ borderBottom: 1, borderColor: 'divider', width: '100%' }}>
         <StyledTabs
           value={value}
           onChange={handleChange}
-          aria-label="basic tabs example"
+          aria-label="nav tabs example"
+          role="navigation"
         >
-          <StyledTab label="На вынос" {...a11yProps(0)} />
-          <StyledTab label="В заведении" {...a11yProps(1)} />
+          {tabs}
         </StyledTabs>
       </Box>
       <StyledCustomTabPanel value={value} index={0}>
-        <OrderNavlink />
+        {children}
       </StyledCustomTabPanel>
-      <StyledCustomTabPanel value={value} index={1}>
-        <OrderNavlink />
-      </StyledCustomTabPanel>
+      {/* <StyledCustomTabPanel value={value} index={1}>
+        {children}
+      </StyledCustomTabPanel> */}
     </div>
   );
 };
@@ -78,7 +131,7 @@ const StyledTabs = styled(Tabs)(() => ({
   },
 }));
 
-const StyledTab = styled(Tab)(() => ({
+const StyledTab = styled(LinkTab)(() => ({
   width: '50%',
   maxWidth: '100%',
   textTransform: 'none',
@@ -88,6 +141,6 @@ const StyledTab = styled(Tab)(() => ({
 
 const StyledCustomTabPanel = styled(CustomTabPanel)(() => ({
   '.css-19kzrtu': {
-    padding: '0px'
-  }
-}))
+    padding: '0px',
+  },
+}));

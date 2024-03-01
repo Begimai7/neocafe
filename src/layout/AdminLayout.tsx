@@ -1,12 +1,16 @@
 // import React from 'react';
-import SideBar from './SideBar';
+// import AdminHeader from '../components/admin/AdminHeader';
+import AdminSideBar from './AdminSideBar';
 import { Outlet } from 'react-router-dom';
 
 const AdminLayout = () => {
   return (
-    <div>
-      <SideBar />
-      <Outlet />
+    <div className="flex">
+      <AdminSideBar />
+      <div className="flex flex-col w-full">
+        
+        <Outlet />
+      </div>
     </div>
   );
 };

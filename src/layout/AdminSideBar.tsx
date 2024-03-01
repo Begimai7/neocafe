@@ -9,34 +9,40 @@ import {
 } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 import { sideBarMenu } from '../utils/constants/constants';
-import neocafe from '../assets/sideBar/neocafe.svg'
+import neocafe from '../assets/sideBar/neocafe.svg';
+import signOut from '../assets/signOut.svg';
+import Button from '../components/UI/Button';
 
 
-const drawerWidth = 300;
-
-const DrawerHeader = styled('div')(({ theme }) => ({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'flex-end',
-  padding: theme.spacing(0, 1),
-  ...theme.mixins.toolbar,
-}));
+  
 
 const Drawer = styled(MuiDrawer)(() => ({
-  width: drawerWidth,
   flexShrink: 0,
   whiteSpace: 'nowrap',
   boxSizing: 'border-box',
+  '.MuiDrawer-paper': {
+    position: 'inherit',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    height: '100vh',
+  },
 }));
 
-export default function SideBar() {
-
+export default function AdminSideBar() {
+  const signOutClick = () => {
+    console.log('sign out');
+  };
+  
   return (
-    <>
-      <Box className="flex justify-between text-white text">
-        <Drawer variant="permanent" className='justify-between'>
+    <div className="">
+      <Box className="text-white text">
+        <Drawer
+          variant="permanent"
+        >
           <div>
-            <div style={{ marginTop: '2rem', marginLeft:'1rem'}}>
+            <div style={{ marginTop: '2rem', marginLeft: '1rem' }}>
               <img src={neocafe} alt="" />
             </div>
             <List>
@@ -75,11 +81,13 @@ export default function SideBar() {
               ))}
             </List>
           </div>
+
+          <Button className="flex items-center gap-2" onClick={signOutClick}>
+            Выход
+            <img className="h-6 w-6" src={signOut} />
+          </Button>
         </Drawer>
-        <Box component="main" sx={{ flexGrow: 1, p: 3 }} >
-          <DrawerHeader className='ml-12'/>
-        </Box>
       </Box>
-    </>
+    </div>
   );
 }
