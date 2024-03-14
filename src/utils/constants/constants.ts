@@ -5,8 +5,11 @@ import WidgetsIcon from '@mui/icons-material/Widgets';
 import { OverridableComponent } from '@mui/material/OverridableComponent';
 import { SvgIconTypeMap } from '@mui/material/SvgIcon';
 import menuIcon from '../../assets/sideBar/bookOpen.svg';
+import menuIconActive from '../../assets/sideBar/bookOpenActive.svg';
 import orderIcon from '../../assets/sideBar/notepad.svg';
-import profileOcon from '../../assets/sideBar/userCircle.svg';
+import orderIconActive from '../../assets/sideBar/NotepadActive.svg';
+import profileIcon from '../../assets/sideBar/userCircle.svg';
+import profileIconActive from '../../assets/sideBar/userCircleActive.svg';
 import capuccino from '../../assets/orderIcons/cappuccino.png';
 import latte from '../../assets/orderIcons/latte.png';
 import americano from '../../assets/orderIcons/americano.png';
@@ -66,18 +69,21 @@ export const sidebarBarista = [
     id: 1,
     title: 'Заказы',
     icon: orderIcon,
+    activeIcon: orderIconActive,
     path: 'orders',
   },
   {
     id: 2,
     title: 'Меню',
     icon: menuIcon,
+    activeIcon: menuIconActive,
     path: 'menu',
   },
   {
     id: 3,
     title: 'Профиль',
-    icon: profileOcon,
+    icon: profileIcon,
+    activeIcon: profileIconActive,
     path: 'profile',
   },
 ];
@@ -85,7 +91,7 @@ export const sidebarBarista = [
 export const ordersData = [
   {
     id: 1,
-    placeFood: 'На вынос',
+    placeFood: 'takeaway',
     numberTable: 'M-47',
     status: 'new',
     nameOfWaiters: 'Valerinaaaaaa',
@@ -96,7 +102,7 @@ export const ordersData = [
   },
   {
     id: 2,
-    placeFood: 'В заведении',
+    placeFood: 'takeaway',
     numberTable: 'M-47',
     status: 'new',
     nameOfWaiters: 'Valerina',
@@ -107,7 +113,7 @@ export const ordersData = [
   },
   {
     id: 3,
-    placeFood: 'На вынос',
+    placeFood: 'takeaway',
     numberTable: 'M-47',
     status: 'inProgress',
     nameOfWaiters: 'Valerina',
@@ -118,7 +124,7 @@ export const ordersData = [
   },
   {
     id: 4,
-    placeFood: 'В заведении',
+    placeFood: 'inTheEstablishment',
     numberTable: 'M-47',
     status: 'done',
     nameOfWaiters: 'Valerina',
@@ -129,7 +135,7 @@ export const ordersData = [
   },
   {
     id: 5,
-    placeFood: 'В заведении',
+    placeFood: 'inTheEstablishment',
     numberTable: 'M-47',
     status: 'refuce',
     nameOfWaiters: 'Valerina',
@@ -140,7 +146,7 @@ export const ordersData = [
   },
   {
     id: 6,
-    placeFood: 'В заведении',
+    placeFood: 'inTheEstablishment',
     numberTable: 'M-47',
     status: 'finished',
     nameOfWaiters: 'Valerina',
@@ -151,9 +157,9 @@ export const ordersData = [
   },
   {
     id: 7,
-    placeFood: 'На вынос',
+    placeFood: 'takeaway',
     numberTable: 'M-47',
-    status: 'new',
+    status: 'inProgress',
     nameOfWaiters: 'Valerina',
     foods: {
       id: 1,
@@ -162,9 +168,9 @@ export const ordersData = [
   },
   {
     id: 8,
-    placeFood: 'На вынос',
+    placeFood: 'takeaway',
     numberTable: 'M-47',
-    status: 'new',
+    status: 'done',
     nameOfWaiters: 'Valerina',
     foods: {
       id: 1,
@@ -173,9 +179,9 @@ export const ordersData = [
   },
   {
     id: 9,
-    placeFood: 'На вынос',
+    placeFood: 'takeaway',
     numberTable: 'M-47',
-    status: 'new',
+    status: 'refuce',
     nameOfWaiters: 'Valerina',
     foods: {
       id: 1,
@@ -184,7 +190,7 @@ export const ordersData = [
   },
   {
     id: 10,
-    placeFood: 'В заведении',
+    placeFood: 'inTheEstablishment',
     numberTable: 'M-47',
     status: 'new',
     nameOfWaiters: 'Valerina',
@@ -195,7 +201,7 @@ export const ordersData = [
   },
   {
     id: 11,
-    placeFood: 'В заведении',
+    placeFood: 'inTheEstablishment',
     numberTable: 'M-47',
     status: 'new',
     nameOfWaiters: 'Valerina',
@@ -206,7 +212,7 @@ export const ordersData = [
   },
   {
     id: 12,
-    placeFood: 'На вынос',
+    placeFood: 'takeaway',
     numberTable: 'M-47',
     status: 'new',
     nameOfWaiters: 'Valerina',
@@ -217,7 +223,7 @@ export const ordersData = [
   },
   {
     id: 13,
-    placeFood: 'На вынос',
+    placeFood: 'takeaway',
     numberTable: 'M-47',
     status: 'new',
     nameOfWaiters: 'Valerina',
@@ -228,7 +234,7 @@ export const ordersData = [
   },
   {
     id: 14,
-    placeFood: 'На вынос',
+    placeFood: 'takeaway',
     numberTable: 'M-47',
     status: 'new',
     nameOfWaiters: 'Valerina',
@@ -239,7 +245,7 @@ export const ordersData = [
   },
   {
     id: 15,
-    placeFood: 'В заведении',
+    placeFood: 'inTheEstablishment',
     numberTable: 'M-47',
     status: 'new',
     nameOfWaiters: 'Valerina',
@@ -255,7 +261,7 @@ export const ordersStatus = [
     id: 1,
     title: 'Новый',
     path: 'new',
-    color: '#FF5151',
+    color: 'red',
   },
   {
     id: 2,

@@ -6,6 +6,7 @@ import Menu from '../pages/barista/Menu';
 import Profile from '../pages/barista/Profile';
 
 import OrderCard from '../components/barista/orders/OrderCard';
+// import BaristaTabs from '../components/UI/BaristaTabs';
 
 export const router = createBrowserRouter(
   [
@@ -22,8 +23,14 @@ export const router = createBrowserRouter(
               element: <Orders />,
               children: [
                 {
-                  path: ':name',
-                  element: <OrderCard />,
+                  path: ':place/:name',
+                  element: <OrderCard/>,
+                  // children: [
+                  //   {
+                  //     path: ':name',
+                  //     element: <OrderCard/>,
+                  //   },
+                  // ],
                 },
               ],
             },
