@@ -33,7 +33,7 @@ interface PanelDataTypes {
 export type TabsData = {
   title: string;
   path: string;
-}
+};
 
 export const sideBarMenu: SideBarMenu[] = [
   {
@@ -423,8 +423,6 @@ export const profileTabsData: TabsData[] = [
     title: 'График работы',
   },
 ];
-
-
 
 export const stockTableColumns = [
   { id: 'numbering', label: '№', minWidth: 56 },

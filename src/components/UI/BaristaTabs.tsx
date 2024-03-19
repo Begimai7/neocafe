@@ -90,8 +90,7 @@ const BaristaTabs: FC<BaristaTabsProps> = ({ children, labels }) => {
   };
 
   const tabs = labels.map((label) => {
-    console.log(label, 'label');
-    
+    console.log(label, 'label');   
     return <StyledTab label={label.title} href={label.path} />;
   });
 
