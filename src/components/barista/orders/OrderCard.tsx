@@ -10,9 +10,12 @@ const OrderCard = () => {
   const [open, setOpen] = useState<string>('');
   const [remove, setRemove] = useState<boolean>(true);
   const { name } = useParams();
+  const { place } = useParams()
+  // const params = useParams()
+  console.log(place, name, 'params')
 
-  // const inTheEstablishment = ordersData.filter((e) => e.placeFood === 'В заведении');
-  const filteredFoods = ordersData.filter((e) => e.status === name);
+  const inTheEstablishment = ordersData.filter((e) => e.placeFood === place);
+  const filteredFoods = inTheEstablishment.filter((e) => e.status === name);
 
   const deleteCard = () => {
     if (remove === false) {

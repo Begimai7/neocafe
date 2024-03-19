@@ -35,7 +35,7 @@ const OrdersPanel: React.FC<OrdersPanelProps> = ({ setOpen, open }) => {
 
   const data: PanelDataTypes[] | null = panelData;
 
-  console.log(data, 'data')
+  // console.log(data, 'data')
 
   const closePanel = () => {
     if (setOpen) {
@@ -56,10 +56,13 @@ const OrdersPanel: React.FC<OrdersPanelProps> = ({ setOpen, open }) => {
     index: number,
   ): void => {
     e.stopPropagation();
+    if(panelData.length !== 0 && panelData[index]) {
 
-    const updatedPanelData = [...panelData];
-    updatedPanelData[index].cost += 1;
-    setPanelsData(updatedPanelData);
+      const updatedPanelData = [...panelData];
+      updatedPanelData[index].cost += 1;
+      setPanelsData(updatedPanelData);
+    }
+
   };
 
   const minusClick = (
@@ -67,10 +70,12 @@ const OrdersPanel: React.FC<OrdersPanelProps> = ({ setOpen, open }) => {
     index: number,
   ): void => {
     e.stopPropagation();
-    if ( panelData[index].cost > 0) {
+    if (panelData.length > 0 && panelData[index] && panelData[index].cost !== null) {
       const updatedPanelData = [...panelData];
-      updatedPanelData[index].cost -= 1;
-      setPanelsData(updatedPanelData);
+      if (updatedPanelData[index].cost! > 0) { // Check if cost is greater than 0 before subtraction
+        updatedPanelData[index].cost -= 1;
+        setPanelsData(updatedPanelData);
+      }
     }
   };
 
@@ -158,12 +163,12 @@ const OrdersPanel: React.FC<OrdersPanelProps> = ({ setOpen, open }) => {
                     </div>
                     <div className="w-full h-[2px] bg-white mt-3"></div>
                   </div>
-                  <div
-                    className={`bg-[#F77] w-[100px] h-3/4 self-end  transition-transform duration-500 transform absolute
+                  <Button
+                    className={`bg-[#f13b3b] w-[100px] h-3/4 self-end  transition-transform duration-500 transform absolute
               flex justify-center items-center right-[-120px] `}
                   >
                     <img src={bag} />
-                  </div>
+                  </Button>
                 </div>
               </div>
             );
